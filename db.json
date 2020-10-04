@@ -1,0 +1,20 @@
+{
+    "users":[
+        { "id":1, "userName": "alexDriver", "firstName":"Alex", "lastName":"Smith", "type":"driver" },
+        { "id":2, "userName": "alexSales", "firstName":"Alex", "lastName":"Smith", "type":"sales" }
+    ],
+
+    "clients":[
+
+    ],
+
+    "products":[
+        { "id":1, "name":"Day Lilly", "price":5.3 },
+        { "id":2, "name":"Pine Tree", "price":250.0 },
+        { "id":3, "name":"Rose", "price":10.1 }
+    ],
+
+    "orders":[
+
+    ]
+}
