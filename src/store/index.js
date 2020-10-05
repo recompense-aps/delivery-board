@@ -31,6 +31,17 @@ export default new Vuex.Store({
 		},
 		SET_PRODUCTS(state,products){
 			state.products = products
+		},
+		SET_USERS(state,users){
+			state.users = users
+			// for testing
+			state.currentUser = users[1]
+		},
+		SET_CLIENTS(state,clients){
+			state.clients = clients
+		},
+		SET_ORDERS(state, orders){
+			state.orders = orders
 		}
 
 	},
@@ -41,9 +52,47 @@ export default new Vuex.Store({
 			})
 		},
 		setProducts({ commit }){
-			return api.getAllProducts().then((products) => {
-				commit('SET_PRODUCTS', products)
+			return api.getAllProducts().then((response) => {
+				commit('SET_PRODUCTS', response.data)
 			})
+		},
+		setUsers({ commit }){
+			return api.getAllUsers().then((response) => {
+				commit('SET_USERS', response.data)
+			})
+		},
+		setClients({ commit }){
+			return api.getAllClients().then((response) => {
+				commit('SET_CLIENTS', response.data)
+			})
+		},
+		setOrders({ commit }){
+			return api.getAllOrders().then(response => {
+				commit('SET_ORDERS', response.data)
+			})
+		},
+		setCurrentUser({ commit }, user){
+			commit('SET_CURRENT_USER', user)
+		},
+		logout({ commit }){
+			commit('SET_CURRENT_USER', null)
+		}
+	},
+	getters: {
+		currentUser(state){
+			return state.currentUser
+		},
+		users(state){
+			return state.users
+		},
+		clients(state){
+			return state.clients
+		},
+		orders(state){
+			return state.orders
+		},
+		products(state){
+			return state.products
 		}
 	},
 	modules: {}

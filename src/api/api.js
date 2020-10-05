@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const client = axios.create({
-    baseUrl: 'http://localhost:3000',
+    baseURL: 'http://localhost:3000',
     withCredentials: false,
     headers: {
         Accept: 'application/json',
@@ -19,6 +19,9 @@ export default {
     },
     getAllProducts(){
         return client.get('/products')
+    },
+    getAllClients(){
+        return client.get('/clients')
     },
     addOrder(order){
         return client.post('/orders', order)

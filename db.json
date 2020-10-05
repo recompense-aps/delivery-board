@@ -1,20 +1,80 @@
 {
-    "users":[
-        { "id":1, "userName": "alexDriver", "firstName":"Alex", "lastName":"Smith", "type":"driver" },
-        { "id":2, "userName": "alexSales", "firstName":"Alex", "lastName":"Smith", "type":"sales" }
-    ],
-
-    "clients":[
-
-    ],
-
-    "products":[
-        { "id":1, "name":"Day Lilly", "price":5.3 },
-        { "id":2, "name":"Pine Tree", "price":250.0 },
-        { "id":3, "name":"Rose", "price":10.1 }
-    ],
-
-    "orders":[
-
-    ]
+  "users": [
+    {
+      "id": 1,
+      "userName": "alexDriver",
+      "firstName": "Alex",
+      "lastName": "Smith",
+      "type": "driver"
+    },
+    {
+      "id": 2,
+      "userName": "alexSales",
+      "firstName": "Alex",
+      "lastName": "Smith",
+      "type": "sales"
+    },
+    {
+        "id": 3,
+        "userName": "johnDriver",
+        "firstName": "John",
+        "lastName": "Driver",
+        "type": "driver"
+    }
+  ],
+  "clients": [
+    {
+      "id": 1,
+      "name": "Sunshine Landscaping"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Day Lilly",
+      "price": 5.3
+    },
+    {
+      "id": 2,
+      "name": "Pine Tree",
+      "price": 250
+    },
+    {
+      "id": 3,
+      "name": "Rose",
+      "price": 10.1
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "clientId": 1,
+      "driverId": 1,
+      "salesId": 2,
+      "destination": "123 Street Ave",
+      "expectedDateOfDelivery": "1/1/2021",
+      "expectedTimeOfDelivery": "9:00AM",
+      "products": [
+        {
+          "id": 1,
+          "quantity": 5
+        }
+      ]
+    },
+    {
+      "clientId": 1,
+      "driverId": 1,
+      "salesId": 2,
+      "destination": "555 Lake Ave",
+      "expectedDateOfDelivery": "2020-10-04",
+      "expectedTimeOfDelivery": "18:12",
+      "products": [
+        {
+          "id": 3,
+          "quantity": "3"
+        }
+      ],
+      "id": 2
+    }
+  ]
 }

@@ -11,5 +11,8 @@ new Vue({
 	render: h => h(App),
 	created(){
 		this.$store.dispatch('setProducts')
+		this.$store.dispatch('setUsers')
+		this.$store.dispatch('setClients')
+		this.$store.dispatch('setOrders')
 	}
 }).$mount("#app");
