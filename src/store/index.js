@@ -35,7 +35,7 @@ export default new Vuex.Store({
 		SET_USERS(state,users){
 			state.users = users
 			// for testing
-			state.currentUser = users[1]
+			// state.currentUser = users[1]
 		},
 		SET_CLIENTS(state,clients){
 			state.clients = clients

@@ -28,7 +28,7 @@ export default {
         }
     },
     created() {
-        if(!this.$store.getters.currentUser.id){
+        if(!this.$store.getters.currentUser){
             this.$router.push({name: 'Login'})
         }
         else{
