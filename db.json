@@ -15,11 +15,11 @@
       "type": "sales"
     },
     {
-        "id": 3,
-        "userName": "johnDriver",
-        "firstName": "John",
-        "lastName": "Driver",
-        "type": "driver"
+      "id": 3,
+      "userName": "johnDriver",
+      "firstName": "John",
+      "lastName": "Driver",
+      "type": "driver"
     }
   ],
   "clients": [
@@ -54,6 +54,7 @@
       "destination": "123 Street Ave",
       "expectedDateOfDelivery": "1/1/2021",
       "expectedTimeOfDelivery": "9:00AM",
+      "delivered": true,
       "products": [
         {
           "id": 1,
@@ -75,6 +76,59 @@
         }
       ],
       "id": 2
+    },
+    {
+      "clientId": 1,
+      "driverId": 1,
+      "salesId": 2,
+      "destination": "1234 Park Ave",
+      "expectedDateOfDelivery": "2020-10-04",
+      "expectedTimeOfDelivery": "21:10",
+      "products": [
+        {
+          "id": 2,
+          "quantity": 12
+        },
+        {
+          "id": 3,
+          "quantity": 44
+        },
+        {
+          "id": 1,
+          "quantity": 128
+        }
+      ],
+      "id": 3
+    },
+    {
+      "clientId": 1,
+      "driverId": 1,
+      "salesId": 2,
+      "destination": "555 Klive Rd",
+      "expectedDateOfDelivery": "2020-10-04",
+      "expectedTimeOfDelivery": "21:10",
+      "products": [
+        {
+          "id": 1,
+          "quantity": 1
+        }
+      ],
+      "id": 4
+    },
+    {
+      "clientId": 1,
+      "driverId": 3,
+      "salesId": 2,
+      "destination": "2 James St",
+      "expectedDateOfDelivery": "2020-10-04",
+      "expectedTimeOfDelivery": "21:12",
+      "products": [
+        {
+          "id": 2,
+          "quantity": 4
+        }
+      ],
+      "id": 5
     }
   ]
 }

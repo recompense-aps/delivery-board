@@ -1,5 +1,5 @@
 <template lang="pug">
-    table( class="uk-table")
+    table( class="uk-table uk-table-striped")
         thead
             tr
                 th Product
@@ -32,3 +32,17 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+    $mainColor: #582A72;
+
+    thead{
+        background-color: $mainColor;
+
+        tr{
+            th{
+                color: white !important;
+            }
+        }
+    }
+</style>

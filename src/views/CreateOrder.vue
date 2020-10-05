@@ -61,7 +61,7 @@
                     type="number"
                     class="uk-input"
                     placeholder="count"
-                    v-model='productQuantity'
+                    v-model.number='productQuantity'
                 )
 
             div( class="uk-width-1-4@s")
@@ -73,7 +73,10 @@
             div(
                 class="uk-width-1-1"
             )
-                ProductTable( :products='productsInOrder')
+                ProductTable(
+                    v-show='productsInOrder.length'
+                    :products='productsInOrder'
+                )
 
             div( class="uk-width-1-1")
                 label Driver
@@ -121,7 +124,7 @@ export default {
         createOrder() {
             const order = {
                 clientId: this.selectedClient,
-                driverId: this.selectedClient,
+                driverId: this.selectedDriver,
                 salesId: this.$store.getters.currentUser.id,
                 destination: this.destination,
                 expectedDateOfDelivery: this.expectedDateOfDelivery,
@@ -141,7 +144,14 @@ export default {
                 })
         },
         addProductToOrder() {
-            this.productsInOrder.push( { id:this.selectedProduct, quantity:this.productQuantity } )
+            const id = this.selectedProduct
+            const existing = this.productsInOrder.filter(product => product.id === id)?.pop()
+            if(existing){
+                existing.quantity += parseInt(this.productQuantity)
+            }
+            else{
+                this.productsInOrder.push( { id:this.selectedProduct, quantity:this.productQuantity } )
+            }
         },
         validateNotEmpty() {
 

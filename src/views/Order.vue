@@ -1,25 +1,45 @@
 <template lang="pug">
     div( class="uk-grid-small uk-grid")
-        div( class="uk-width-1-1")
-            h1 View Order
 
-        div( class="uk-width-1-2@s")
+        div( class="uk-margin uk-width-1-2@s")
             h2 {{ client.name }}
 
-        div( class="uk-width-1-2@s")
-            span( class="uk-label") Ordered
+        div( class="uk-margin uk-width-1-2@s")
+            span( 
+                class="uk-label"
+                v-if='!delivered'
+            ) Ordered
 
-        div( class="uk-width-1-1")
-            h3 {{ destination }}
+            span(
+                class="uk-label uk-label-success"
+                v-if='delivered'
+            ) Delivered
 
-        div( class="uk-wdith-1-2@s")
-            h3 {{ expectedDateOfDelivery }}
+        div( class="uk-margin uk-width-1-1")
+            h3
+                span( uk-icon="location") 
+                span {{ destination }}
 
-        div( class="uk-width-1-2@s")
-            h3 {{ expectedTimeOfDelivery }}
+        div( class="uk-margin uk-width-1-2@s")
+            h3
+                span( uk-icon="calendar") 
+                span {{ expectedDateOfDelivery }}
 
-        div( class="uk-width-1-1")
+        div( class="uk-margin uk-width-1-2@s")
+            h3
+                span( uk-icon="clock") 
+                span {{ expectedTimeOfDelivery }}
+
+        div( class="uk-margin uk-width-1-1")
             ProductTable( :products='resolveProducts()')
+
+        div( class="uk-margin")
+            button( 
+                class="uk-button uk-button-default"
+                @click='completeOrder'
+            )
+                span( uk-icon="check")
+                span Delivered
 
 </template>
 
@@ -45,16 +65,19 @@ export default {
     },
 
     methods:{
-        resolveOrder(){
+        resolveOrder() {
             return this.$store.getters.orders.filter(order => order.id === this.$route.params.id).pop()
         },
-        resolveProducts(){
+        resolveProducts() {
             const products = []
             this.products.forEach(product => {
                 const transformed = this.$store.getters.products.filter(theProduct => theProduct.id === product.id).pop()
                 products.push(Object.assign({ quantity:product.quantity }, transformed))
             })
             return products
+        },
+        completeOrder() {
+
         }
     },
 
